@@ -1,0 +1,378 @@
+@charset "utf-8";
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+  background: #fff;
+  color: #333;
+  margin: 0px;
+  padding: 0px;
+  font: 18px/2.0
+  "YuGothic","メイリオ", Meiryo, "ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro";
+}
+
+html {
+  font-size: 62.5%;/* 1rem=10px */
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+
+.sp {
+  display: none;
+}
+.pc {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* 見出し -----*/
+h3 {
+  position: relative;
+  font-size: clamp(1.8rem,3.8vw,2.4rem);
+  text-align: center;
+  padding-top: clamp(1.6rem,3.4vw,2.4rem);
+}
+h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(6rem,12vw,8rem);
+  height: clamp(1rem,2vw,1.6rem);
+  background-color: #a5836d;
+  border-radius: clamp(1rem,2vw,1.6rem);
+}
+
+h4 {
+  position: relative;
+  font-size: clamp(1.6rem,3.4vw,1.8rem);
+  font-weight: 100;
+  padding-left: calc(1.5rem + 1rem);
+  margin: clamp(1.8rem,3vw,2.4rem) 0 0;
+}
+h4::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: rgb(165, 131, 109);
+  width: 1.5rem;
+  height: 1.8rem;
+  clip-path: polygon(0 0,100% 50%,0 100%);
+}
+
+h4 + p {
+  padding: 1rem 0 1rem calc(1.5rem + 1rem + 1.6rem);
+}
+h4 + p span {
+  font-size: smaller;
+  color: rgb(105, 105, 105,0.7);
+}
+/* 見出し end-----*/
+
+
+
+/* 全体設定 ----------*/
+section .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  padding-top: 3.6rem;
+}
+#hp .container {
+  padding-top: 4.8rem;
+}
+
+section .container > ul:last-of-type {
+  margin: 2.4rem 0 3.6rem;
+}
+
+section {
+  max-width: 1024px;
+  width: 100%;
+  margin: clamp(3rem,6.3vw,6rem) auto;
+  padding: 0 2.4rem;
+}
+/* 全体設定 end----------*/
+
+
+/* nav設定 ----------*/
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7vw;
+  width: 100vw;
+  height: clamp(6rem,6vw,13.3rem);
+  background-color: #f0f0f0;
+  z-index: 1;
+}
+
+nav a {
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15rem;
+  background-color: rgb(51, 51, 51,0.4);
+  transform-origin: center top;
+  transform: scale(0,1);
+  transition: all 0.3s;
+}
+
+nav a:hover::before {
+  transform-origin: center top;
+  transform: scale(1,1);
+}
+/* nav設定 end----------*/
+
+
+/*  */
+.work-wrap > li:first-of-type {
+  text-align: center;
+  margin-bottom: clamp(1.8rem,3.8vw,2.4rem);
+}
+.work-wrap > li:last-of-type {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2.4rem,5vw,4.8rem);
+  padding: 0 3.6rem 0 3rem;
+}
+
+.work-wrap > li:last-of-type > ul {
+  width: 50rem;
+}
+
+.work-wrap > li:first-of-type span {
+  font-size: larger;
+  font-weight: 700;
+  color: #a5836d;
+}
+
+.preview-box {
+  height: 56rem;
+  overflow: auto;
+}
+
+.work-wrap .tool {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.work-wrap .tool img {
+  width: 3.6rem;
+}
+
+
+.work-wrap > li > ul li:last-of-type {
+  margin-top: 3.6rem;
+}
+.work-wrap .btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.work-wrap a {
+  text-align: center;
+  border: 0.1rem solid #333;
+  padding: 0.5em 2em;
+}
+
+
+#baner .preview-box {
+  height: auto;
+  overflow: unset;
+}
+#baner .preview-box img {
+  max-width: 37rem;
+}
+
+
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+a {
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+}
+
+/* マウスオンした時の文字色 */
+a:hover {
+  color: rgba(154, 153, 153, 0.8);
+}
+
+
+/* メディアクエリ(レスポンシブ) ----------------------------------------*/
+/* スマホ(画面幅599px以下) ------------------------------*/
+@media screen and (max-width: 768px) {
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  
+  .work-wrap > li:last-of-type {
+    flex-direction: column;
+  }
+  .work-wrap > li:last-of-type > ul {
+    width: 100%;
+  }
+
+  .preview-box {
+    width: 100%;
+    height: clamp(15rem,32vw,25rem);
+    overflow: auto;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .work-wrap .tool img {
+    width: clamp(2.2rem,4.6vw,3rem);
+  }
+  
+  .work-wrap > li > ul li:last-of-type {
+    margin-top: 3.6rem;
+  }
+  .work-wrap .btn {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .work-wrap a {
+    width: 100%;
+  }
+
+
+  /* バナー */
+  #baner .preview-box img {
+    width: 50%;
+    min-width: 15rem;
+  }
+}
+
+
+/* スマホ(画面幅599px以下) ------------------------------*/
+@media screen and (max-width: 599px) {
+  body {
+    font-size: 14px;
+  }
+  .sp {
+    display: block;
+  }
+  .pc {
+    display: none;
+  }
+
+  .preview-box {
+    height: 25rem;
+    overflow: auto;
+  }
+}
+
+
+/* スマホ(画面幅470px以下) ------------------------------*/
+@media screen and (max-width: 470px) {
+
+  /* 見出し -----*/
+  h4 {
+    position: relative;
+    font-size: clamp(1.6rem,3.4vw,1.8rem);
+    padding-left: calc(1.5rem + 1rem);
+    margin: clamp(1.8rem,3vw,2.4rem) 0 0;
+  }
+  h4::before {
+    width: 1.8rem;
+    height: 1.2rem;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+  }
+  /* 見出し end-----*/
+
+  h4 + p {
+    padding: 1rem 0 1rem;
+  }
+
+  section {
+    padding: 0;
+  }
+
+
+  /* nav設定 ----------*/
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    width: 100vw;
+    height: auto;
+  }
+  nav a {
+    /* width: fit-content; */
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    border: 0.1rem solid #fff;
+    padding: 1em 0;
+  }
+  nav a::before {
+    content: none;
+  }
+  /* nav設定 end----------*/
+
+
+  /* top -----*/
+  #top nav {
+    display: none;
+  }
+
+  #hp .container {
+    padding-top: calc(4.8rem + 4.5em);
+  }
+
+  .work-wrap .tool {
+    justify-content: center;
+    gap: clamp(2rem,4.2vw,2.4rem);
+    margin-bottom: 2rem;
+  }
+
+  .work-wrap .btn {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .work-wrap a {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+}
